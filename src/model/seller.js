@@ -7,15 +7,11 @@ const SellerSchema =  new mongoose.Schema({
 		min: 3,
 		max: 50,
 	},
-	sellerId:{
-		type: mongoose.Schema.Types.ObjectId, 
-		default: mongoose.Schema.Types.ObjectId, 
-		null: false
-	},
-	products:{
-		type:Array,
-		default:[]
-	}
+	sellerId:mongoose.ObjectId,
+	products:[
+		{
+			type:mongoose.ObjectId,
+		}
+	]
 });
-const Seller = mongoose.model("Seller",SellerSchema)
-exports.default = { Seller };
+module.exports = mongoose.model('Seller',SellerSchema);

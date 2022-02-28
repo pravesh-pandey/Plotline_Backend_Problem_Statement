@@ -1,9 +1,8 @@
 const express = require("express");
-const dotenv = require('dotenv')
-const mongoose = require('mongoose');
-const SellerRegister = require("./src/Add_Seller");
-const helmet = require("helmet");
-const morgan = require("morgan");
+const dotenv = require("dotenv")
+const mongoose = require("mongoose");
+const SellerRegister = require("./src/routes/Seller");
+const Admin = require("./src/routes/Admin");
 
 const app = express();
 dotenv.config();
@@ -15,9 +14,11 @@ mongoose.connect(process.env.DB_URL,{ autoIndex: false }).then(()=>{
 });
 
 app.use(express.json());
-app.use(helmet());
-app.use(morgan("common"));
-app.use('/seller',SellerRegister);
+app.use("/seller",SellerRegister);
+app.use("/GetAll",Admin);
+app.get("/status",async(req,res) =>{
+	res.send("Active");
+});
 
 app.listen(process.env.PORT,(err) => {
 	if(err)
