@@ -29,11 +29,17 @@
    * AddProduct
    
    * status/
+   
+   * Admin/
 
-2.Admin/
+2. Admin/
+   
+   * AllProduct/
+   
+   * status/
 
-   * AllProduct/
+3. status/
 
-   * status/
 
-3.status/
+
+## To Use it Add .env file with port (as PORT )and mongoDB Url ( as DB_URL)
