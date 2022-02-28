@@ -15,7 +15,7 @@ mongoose.connect(process.env.DB_URL,{ autoIndex: false }).then(()=>{
 
 app.use(express.json());
 app.use("/seller",SellerRegister);
-app.use("/GetAll",Admin);
+app.use("/Admin",Admin);
 app.get("/status",async(req,res) =>{
 	res.send("Active");
 });
